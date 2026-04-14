@@ -214,6 +214,10 @@
   .equip-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
   .equip-use { font-size: 13px; font-weight: 300; color: var(--text-secondary); line-height: 1.55; }
   @media (max-width: 768px) { .equipment-grid { grid-template-columns: 1fr; } }
+
+  .request-list { list-style: none; padding: 0; margin: 0 0 8px 0; max-width: 640px; }
+  .request-list li { font-size: 16px; font-weight: 300; color: var(--text-secondary); line-height: 1.7; padding-left: 22px; position: relative; }
+  .request-list li::before { content: ''; position: absolute; left: 0; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-accent); }
 </style>
 </head>
 <body>
@@ -243,7 +247,12 @@
     <div class="section-label">The Trip</div>
     <p class="series-text">Following our conversation on Instagram, this is a proposed partnership framework to lock in the stay on Grand Bahama and shape the content around what the island does best.</p>
     <p class="series-text" style="margin-top:16px"><strong style="color:var(--text);font-weight:500">Dates:</strong> Arrival is locked to <strong style="color:var(--text);font-weight:500">April 21</strong>. Departure falls somewhere between <strong style="color:var(--text);font-weight:500">April 28 and April 30</strong>, depending on what works best for your team and the activities you want to feature.</p>
-    <p class="series-text" style="margin-top:16px"><strong style="color:var(--text);font-weight:500">What the partnership covers:</strong> full-board lodging for the duration of the stay, a short list of island activities (your pick from what you already run or anything you want to feature), and ideally a scooter or car to move between locations. Flights and everything else on my side.</p>
+    <p class="series-text" style="margin-top:16px;margin-bottom:10px"><strong style="color:var(--text);font-weight:500">What I would like to request for the collaboration:</strong></p>
+    <ul class="request-list">
+      <li>Full-board lodging for the duration of the stay</li>
+      <li>Scooter or method of transportation</li>
+      <li>Any activities you want to feature</li>
+    </ul>
     <p class="series-text" style="margin-top:16px">The top target is the tiger shark free dive. If your team has access or a partner operator, I would build the hero content around that. The rest of the activities can be shaped around whatever you want to spotlight.</p>
     <div class="stats-grid">
       <div><div class="stat-value">Apr 21</div><div class="stat-label">Arrival (fixed)</div></div>
