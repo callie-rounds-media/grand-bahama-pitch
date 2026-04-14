@@ -208,7 +208,6 @@
   .rate-note { font-size: 12px; font-weight: 300; color: var(--text-secondary); line-height: 1.6; margin-top: 6px; }
   @media (max-width: 768px) { .rates-grid { grid-template-columns: 1fr; } }
 
-  .adv-card-icon { position: absolute; top: 18px; right: 20px; font-size: 32px; opacity: 0.75; z-index: 2; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25)); }
 </style>
 </head>
 <body>
@@ -377,7 +376,8 @@ const concepts = [
     "subtitle": "Freediving with tiger sharks. Ideally freediving, not scuba.",
     "gradient": "linear-gradient(135deg, #0E2F44 0%, #1E5A7E 50%, #4FA0C4 100%)",
     "pitch": "Freediving with tiger sharks is the top target of the trip. Cinematic underwater Reel, shaped around the operator your team recommends.",
-    "icon": "\ud83e\udd88"
+    "icon": "\ud83e\udd88",
+    "img": "assets/tiger-beach.jpg"
   },
   {
     "title": "Dolphins in the Open Ocean (UNEXSO)",
@@ -387,7 +387,8 @@ const concepts = [
     "subtitle": "Open-ocean dolphin encounter. Ideally freediving.",
     "gradient": "linear-gradient(135deg, #0B3A52 0%, #1F6E96 50%, #67B4D4 100%)",
     "pitch": "Freediving with dolphins in open water. Emotional, high-performing content that moves well across both our feeds.",
-    "icon": "\ud83d\udc2c"
+    "icon": "\ud83d\udc2c",
+    "img": "assets/dolphins-unexso.jpg"
   },
   {
     "title": "Ben's Cave + Lucayan Cavern System",
@@ -397,7 +398,8 @@ const concepts = [
     "subtitle": "Scuba. The underwater cave network here is bucket list for me.",
     "gradient": "linear-gradient(135deg, #0A1E2E 0%, #163A56 50%, #2C6A8E 100%)",
     "pitch": "Scuba through the longest underwater cave system in the world. Quiet, moody, signature dive content.",
-    "icon": "\ud83d\udd76\ufe0f"
+    "icon": "\ud83d\udd76\ufe0f",
+    "img": "assets/lucayan-cave.jpg"
   },
   {
     "title": "Blue Holes (Owl's Hole)",
@@ -407,7 +409,8 @@ const concepts = [
     "subtitle": "Scuba. Would love to shoot vertical underwater content here.",
     "gradient": "linear-gradient(135deg, #081E2C 0%, #123F5A 50%, #2878A8 100%)",
     "pitch": "Vertical descent Reel. The drop into a blue hole is a shot that reliably stops the scroll.",
-    "icon": "\ud83d\udd35"
+    "icon": "\ud83d\udd35",
+    "img": "assets/owls-hole.jpg"
   },
   {
     "title": "Wreck Diving (Theo's Wreck)",
@@ -417,7 +420,8 @@ const concepts = [
     "subtitle": "Scuba. A 230-ft wreck with swim-throughs. Moody underwater content.",
     "gradient": "linear-gradient(135deg, #0D2630 0%, #1A4855 50%, #3A7A8A 100%)",
     "pitch": "230-ft wreck with swim-throughs. Exactly the kind of atmospheric underwater content I already have a strong track record on.",
-    "icon": "\u2693"
+    "icon": "\u2693",
+    "img": "assets/theos-wreck.jpg"
   },
   {
     "title": "Jet Ski Island Tour",
@@ -427,7 +431,8 @@ const concepts = [
     "subtitle": "Coastline run with stops at hidden beaches. Fast, fun, great connective footage.",
     "gradient": "linear-gradient(135deg, #1F6889 0%, #3C9FBE 50%, #8CD4E8 100%)",
     "pitch": "Fast, fun, great connective footage between the bigger dive days. Hidden beach stops for b-roll and stills.",
-    "icon": "\ud83c\udfc4"
+    "icon": "\ud83c\udfc4",
+    "img": "assets/jet-ski.jpg"
   },
   {
     "title": "Kayak + Mangroves + Caves",
@@ -437,7 +442,8 @@ const concepts = [
     "subtitle": "Paddling through mangrove creeks into cave entrances. A calm counter-beat.",
     "gradient": "linear-gradient(135deg, #2B4A2E 0%, #4F7D52 50%, #8EB791 100%)",
     "pitch": "Softer, slower content. Balances the extreme sport Reels with something nature-forward for the eco traveler segment.",
-    "icon": "\ud83d\udef6"
+    "icon": "\ud83d\udef6",
+    "img": "assets/kayak-mangrove.jpg"
   },
   {
     "title": "4x4 Jeep Convoy",
@@ -447,7 +453,8 @@ const concepts = [
     "subtitle": "Driving across the island to hit the ecological and historic spots.",
     "gradient": "linear-gradient(135deg, #3A2E1E 0%, #6B5234 50%, #A58866 100%)",
     "pitch": "A day of travel, landscape, and story. Lets the content breathe past the water-only beats and shows the range of the island.",
-    "icon": "\ud83d\ude99"
+    "icon": "\ud83d\ude99",
+    "img": "assets/jeep-convoy.jpg"
   },
   {
     "title": "West End Fishing Villages",
@@ -457,14 +464,14 @@ const concepts = [
     "subtitle": "Time with local fishing communities. Real Bahamian life, the soul of the island.",
     "gradient": "linear-gradient(135deg, #6B3A1E 0%, #A05F34 50%, #D49464 100%)",
     "pitch": "Real Bahamian life, real people. The human story that anchors everything else and gives the series depth beyond the stunt content.",
-    "icon": "\ud83c\udfd6\ufe0f"
+    "icon": "\ud83c\udfd6\ufe0f",
+    "img": "assets/west-end-fishing.jpg"
   }
 ];
 
 function slugify(t){return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,'');}
 document.getElementById('advGrid').innerHTML = concepts.map((c,i) => `
-  <div class="adv-card" id="${slugify(c.title)}" onclick="openModal(${i})" style="background:${c.gradient}">
-    <div class="adv-card-icon">${c.icon || ''}</div>
+  <div class="adv-card" id="${slugify(c.title)}" onclick="openModal(${i})" style="background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15) 60%), url('${c.img}') center/cover no-repeat, ${c.gradient}">
     <div class="adv-card-overlay"></div>
     <div class="adv-card-content">
       <div class="adv-card-tags">
@@ -479,7 +486,7 @@ document.getElementById('advGrid').innerHTML = concepts.map((c,i) => `
 function openModal(i) {
   const c = concepts[i];
   const ov = document.getElementById('modalOverlay');
-  document.getElementById('modalHero').style.background = c.gradient;
+  document.getElementById('modalHero').style.background = `url('${c.img}') center/cover no-repeat, ${c.gradient}`;
 
   document.getElementById('modalBody').innerHTML = `
     <h2 class="modal-title">${c.title}</h2>
