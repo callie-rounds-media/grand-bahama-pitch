@@ -218,6 +218,11 @@
   .request-list { list-style: none; padding: 0; margin: 0 0 8px 0; max-width: 640px; }
   .request-list li { font-size: 16px; font-weight: 300; color: var(--text-secondary); line-height: 1.7; padding-left: 22px; position: relative; }
   .request-list li::before { content: ''; position: absolute; left: 0; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-accent); }
+
+  .gear-list { list-style: none; padding: 0; margin: 28px 0 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 28px; max-width: 720px; }
+  .gear-list li { font-size: 15px; font-weight: 400; color: var(--text); padding-left: 20px; position: relative; line-height: 1.6; }
+  .gear-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-accent); }
+  @media (max-width: 768px) { .gear-list { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -329,35 +334,16 @@
 <div class="section-spacing fade-in" id="equipment">
   <div class="section-container">
     <div class="section-label">Content Equipment</div>
-    <p class="series-text">Everything shot, edited, and delivered on my own gear. No additional production costs on your side.</p>
-    <div class="equipment-grid">
-      <div class="equip-card">
-        <div class="equip-name">DJI Drones</div>
-        <div class="equip-use">Aerial shots of the island, coastline, boat tracking, hero landscape b-roll.</div>
-      </div>
-      <div class="equip-card">
-        <div class="equip-name">Insta360 Camera</div>
-        <div class="equip-use">360 and third-person invisible-stick shots. The signature angle on jet ski, kayak, and jeep content.</div>
-      </div>
-      <div class="equip-card">
-        <div class="equip-name">Underwater GoPro</div>
-        <div class="equip-use">Shark, dolphin, wreck, cave, and blue hole dive footage. Reef-safe housing, stabilized underwater.</div>
-      </div>
-      <div class="equip-card">
-        <div class="equip-name">DJI Osmo Camera</div>
-        <div class="equip-use">Stabilized handheld for any land content, interviews at the fishing villages, walking b-roll.</div>
-      </div>
-      <div class="equip-card">
-        <div class="equip-name">iPhone POV</div>
-        <div class="equip-use">Native-feeling vertical Reel content. Often the angle that performs best on feed.</div>
-      </div>
-      <div class="equip-card">
-        <div class="equip-name">Full Post-Production</div>
-        <div class="equip-use">Concept, shoot, edit, and deliver. Finished Reels, carousels, and raw UGC for your team to use.</div>
-      </div>
-    </div>
+    <p class="series-text">Everything shot, edited, and delivered on my own gear.</p>
+    <ul class="gear-list">
+      <li>DJI Drone</li>
+      <li>360 Camera</li>
+      <li>Underwater GoPro</li>
+      <li>DJI Osmo Camera</li>
+      <li>iPhone POV</li>
+      <li>Full Post-Production</li>
+    </ul>
   </div>
-</div>
 
 <div class="divider"></div>
 
