@@ -98,7 +98,7 @@
   .divider { width: 100%; max-width: 1080px; margin: 0 auto; height: 1px; background: var(--border); }
 
   .adventures-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-  .adv-card { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: all 0.3s ease; aspect-ratio: 4/5; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
+  .adv-card { position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; border: 1px solid var(--border); transition: all 0.3s ease; aspect-ratio: 4/5; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
   .adv-card:hover { border-color: var(--brand-accent); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
   .adv-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.05) 100%); pointer-events: none; }
   .adv-card-content { position: relative; z-index: 2; padding: 22px; }
@@ -436,7 +436,7 @@ const concepts = [
     "subtitle": "Stingray encounter in the shallows. Clean, bright underwater content.",
     "gradient": "linear-gradient(135deg, #1F5468 0%, #3A88A6 50%, #7FBCD0 100%)",
     "img": "assets/stingrays.jpg",
-    "pitch": "Shallow, bright, easy to shoot. Great carousel content and a strong standalone Reel. Your team mentioned stingray access, so let's build a shoot around it."
+    "pitch": "Shallow, bright, easy to shoot. Stingrays in clear water make for great carousel content and a strong standalone Reel."
   },
   {
     "title": "Ben's Cave + Lucayan Cavern System",
@@ -512,7 +512,7 @@ const concepts = [
 
 function slugify(t){return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,'');}
 document.getElementById('advGrid').innerHTML = concepts.map((c,i) => `
-  <div class="adv-card" id="${slugify(c.title)}" style="background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15) 60%), url('${c.img}') center/cover no-repeat, ${c.gradient}">
+  <div class="adv-card" id="${slugify(c.title)}" onclick="openModal(${i})" style="background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15) 60%), url('${c.img}') center/cover no-repeat, ${c.gradient}">
     <div class="adv-card-overlay"></div>
     <div class="adv-card-content">
       <div class="adv-card-tags">
@@ -562,7 +562,11 @@ document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 if (location.hash) {
   setTimeout(() => {
     const el = document.querySelector(location.hash);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const idx = concepts.findIndex(c => slugify(c.title) === location.hash.slice(1));
+      if (idx >= 0) openModal(idx);
+    }
   }, 1000);
 }
 </script>
